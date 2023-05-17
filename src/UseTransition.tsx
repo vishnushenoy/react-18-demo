@@ -8,7 +8,7 @@ export const StartTransition = () => {
   const [isPending, startTransition] = useTransition();
 
   return (
-    <div className="absolute inset-0" style={{ backgroundImage: `url('/map.png')` }}>
+    <div className="absolute inset-0" style={{ backgroundImage: `url('/map.png')`,backgroundRepeat:'no-repeat',backgroundSize:"cover" }}>
       <Pins resolution={resolution} />
       <div
         className={clsx(

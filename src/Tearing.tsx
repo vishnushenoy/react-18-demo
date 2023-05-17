@@ -1,11 +1,9 @@
 import { startTransition, useEffect, useState } from "react";
-import { useSyncExternalStore } from "use-sync-external-store/shim";
 import { Card, sleepSync } from "./utils";
 
 type Listener = () => void;
 
 let externalState = { count: 0 };
-type ExternalState = typeof externalState;
 const listeners: Listener[] = [];
 
 // A function that will modify our external state
@@ -46,25 +44,6 @@ function useExternalState() {
 
   return state;
 }
-
-// The way to do it in React 18
-// function useExternalState() {
-//   const state = useSyncExternalStore(subscribe, () => externalState);
-//   return state;
-// }
-
-// function useExternalSelector<SelectedValue>(
-//   selector: (state: ExternalState) => SelectedValue,
-// ) {
-//   const selectedValue = useSyncExternalStoreWithSelector(
-//     subscribe,
-//     () => externalState,
-//     null,
-//     selector,
-//   );
-
-//   return selectedValue;
-// }
 
 export const Tearing = () => {
   const [show, setShow] = useState(false);

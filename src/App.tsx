@@ -6,8 +6,7 @@ import { Tearing } from "./Tearing";
 import { UseDeferredValue } from "./UseDeferredValue";
 import { isConcurrent } from ".";
 import { Toggle } from "rsuite";
-import { DataFetching } from "./DataFetching";
-import { NewsletterForm } from "./NewsletterForm";
+import { AutomaticBatching } from "./AutomaticBatching";
 
 function App() {
   return (
@@ -24,41 +23,10 @@ function App() {
               />
               <Route path="/concurrent/use-transition" element={<StartTransition />} />
               <Route path="/concurrent/tearing" element={<Tearing />} />
-              <Route path="/suspense/data-fetching" element={<DataFetching />} />
+              <Route path="/concurrent/automatic-batching" element={<AutomaticBatching />} />
             </Routes>
           </div>
         </div>
-        <a
-          className="bg-gradient-to-r from-sky-500 to-blue-600 text-white p-5 flex space-x-5 items-center justify-center hover:text-white hover:no-underline active:text-white focus:text-white"
-          target="_blank"
-          rel="noreferrer"
-          data-formkit-toggle="cf8fa0ea1f"
-          href="https://jacques-blom.ck.page/cf8fa0ea1f"
-        >
-          <div
-            className="rounded-full block w-20 h-20 bg-cover"
-            style={{ backgroundImage: `url('/profile.jpg')` }}
-          />
-          <div>
-            <div className="font-bold text-lg">
-              Made with ❤ by{" "}
-              <a
-                href="https://twitter.com/jacques_codes"
-                target="_blank"
-                rel="noreferrer"
-                className="text-white hover:text-white hover:no-underline active:text-white focus:text-white"
-              >
-                <span className="underline">@jacques_codes</span>
-              </a>
-            </div>
-            <div className="text-base max-w-sm">
-              <span className="underline">Subscribe to my newsletter</span> to learn more
-              about React 18, concurrent mode, and Suspense.
-            </div>
-          </div>
-          {/* <div className="flex-1" /> */}
-          {/* <NewsletterForm /> */}
-        </a>
       </div>
     </BrowserRouter>
   );
@@ -104,23 +72,9 @@ const Sidebar = () => {
           <MenuItem path="/concurrent/use-deferred-value">useDeferredValue</MenuItem>
           <MenuItem path="/concurrent/use-transition">useTransition</MenuItem>
           <MenuItem path="/concurrent/tearing">Tearing</MenuItem>
+          <MenuItem path="/concurrent/automatic-batching">Automatic Batching</MenuItem>
         </Section>
-        {/* <Section title="Suspense">
-            <MenuItem path="/suspense/data-fetching">Data Fetching</MenuItem>
-            <MenuItem path="/suspense/use-deferred-value">useDeferredValue</MenuItem>
-            <MenuItem path="/suspense/use-transition">useTransition</MenuItem>
-          </Section> */}
       </div>
-      {/* <a
-        href="https://twitter.com/jacques_codes"
-        target="_blank"
-        rel="noreferrer"
-        className="text-white hover:text-white hover:no-underline"
-      >
-        <div className="bg-blue-600 hover:bg-blue-400 transition font-extrabold p-5 cursor-pointer text-center">
-          Made with ❤ by <span className="underline">@jacques_codes</span>
-        </div>
-      </a> */}
     </div>
   );
 };
